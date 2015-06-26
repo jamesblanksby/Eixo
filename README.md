@@ -1,5 +1,7 @@
 # Exio
-#### A lightweight and super simple PHP framework
+#### A lightweight and super simple PHP framework.
+
+Yet another PHP framework that isn't ground breaking, but was done as a learning exercise to curate and develop existing skills.
 
 ## Getting started
 ### Adding routes
@@ -20,7 +22,7 @@ Matching dynamic URIs with regular expressions. Routes can be defined using stan
 ```php
 $app->get('/user/{[\d]+}', $response);
 ```
-Instead of having to type common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here `/application/config/route.php`.
+Instead of retyping common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here `/application/config/route.php`.
 ```
 i => [\s\S]*            // Matches everything
 i => [0-9]+             // Numbers only
@@ -78,11 +80,11 @@ class UserModel extends Database {
 ```
 
 ## Views
-his is what the user will view once a route has been matched. Variables and Services passed via the route can be accessed here using, specifically, GET parameters are located in the following associative array `$this->route->parameter`.
+This is what the user will view once a route has been matched. Variables and Services passed via the route can be accessed here using, specifically, `GET` parameters are located in the following associative array `$this->route->parameter`.
 
 
 ## Controllers
-Instead of defining all your route logic with anonymous functions in the route.php, it makes sense to organise this behaviour using Controller classes.
+Instead of defining all your route logic with anonymous functions in the `route.php`, it makes sense to organise this behaviour using Controller classes.
 ```php
 <?php
 
