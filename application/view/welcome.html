@@ -43,7 +43,7 @@ $app->any($route, $response);</code></pre>
 			<p>Matching dynamic URIs with regular expressions. Routes can be defined using standard regular expressions to match dynamic URIs.</p>
 			<pre><code class="php">$app->get('/user/{[\d]+}', $response);</code></pre>
 
-			<p>Instead of having to type common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here /application/config/route.php.</p>
+			<p>Instead of retyping common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here /application/config/route.php.</p>
 		<pre><code class="php">i => [\s\S]*            // Matches everything
 i => [0-9]+             // Numbers only
 a => [a-zA-Z0-9]+       // Alphanumeric
