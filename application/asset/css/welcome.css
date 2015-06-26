@@ -1,0 +1,101 @@
+/*
+ * blue = #5996ee
+ * grey dark #434a54
+ * grey medium #656d78
+ * grey light = #e6e9ed
+ */
+
+@import url('normalize.css');
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+
+    color: #434a54;
+}
+
+h1 {
+	font-weight: 700;
+}
+
+h1 + h2 {
+    color: #656d78;
+}
+
+p {
+    line-height: 24px;
+
+    margin-bottom: 15px;
+
+    color: #656d78;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+p + ul,
+p + ol {
+    margin-top: -8px;
+}
+
+li {
+    line-height: 24px;
+
+    color: #656d78;
+}
+
+hr {
+    height: 2px;
+
+    border-style: none;
+    background: #e6e9ed;
+}
+
+.container {
+    width: 600px;
+    margin: 40px auto 20px auto;
+}
+
+.route {
+    display: inline-block;
+
+    margin: 10px 10px 10px 0;
+    padding: 10px 20px 10px 0;
+
+    color: black;
+    background: #e6e9ed;
+}
+
+.method {
+    font-weight: bold;
+
+    margin: 10px 20px 10px 0;
+    padding: 10px 20px;
+
+    color: #fff;
+    background: #5996ee;
+}
+
+pre {
+    margin: 0;
+}
+pre code {
+    font-size: 13px !important;
+
+    padding: 10px !important;
+}

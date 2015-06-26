@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title><?php echo $this->title; ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php echo $this->resource->style('welcome'); ?>
+        <?php echo $this->resource->style('highlightjs'); ?>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+        
+    </head>
+    <body>
+		<div class="container">
+			<h1>It works!</h1>
+
+			<h2>Welcome to <strong><?php echo $this->framework ?></strong> version <strong><?php echo $this->version ?></strong></h2>
+
+			<hr>
+			<div class="route"><span class="method"><?php echo $this->route->method ?></span><?php echo $this->route->request_query ?></div>
+			<hr>
+
+			<h2>Getting started</h2>
+
+			<h3>Adding routes</h3>
+
+			<pre><code class="php">// GET route.
+// Routes can also be defined using POST, PUT and DELETE methods.
+$app->get($route, $response);
+
+// Match any method type.
+$app->any($route, $response);</code></pre>
+
+			<p>A few things to remember when defining routes:</p>
+
+			<ul>
+				<li>A valid <strong>route</strong> must always start with a slash.</li>
+				<li>The <strong>response</strong> can be an anonymous function or an array specifying either, a View or a Controller.</li>
+			</ul>
+
+			<h3>Using Regex</h3>
+			<p>Matching dynamic URIs with regular expressions. Routes can be defined using standard regular expressions to match dynamic URIs.</p>
+			<pre><code class="php">$app->get('/user/{[\d]+}', $response);</code></pre>
+
+			<p>Instead of having to type common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here /application/config/route.php.</p>
+		<pre><code class="php">i => [\s\S]*            // Matches everything
+i => [0-9]+             // Numbers only
+a => [a-zA-Z0-9]+       // Alphanumeric
+c => [a-zA-Z0-9+_\-\.]+ // Alnumnumeric and + _ - . characters</code></pre>
+			
+			<h3>Defining responses</h3>
+			<pre><code class="php">// Defining a route response with an anonymous function.
+$app->get('/', function() {
+	echo 'It works!';
+});
+
+// Anonymous route functions can be passed registered Services.
+$app->get('/', function() use ($app) {
+	$app->render('user', 'User', ['name' => 'John Smith']);
+});
+
+// Using a controller method as a response.
+$app->get('/', ['controller' => 'WelcomeController/main']);
+
+/**
+ * Finally, defining a route that renders a View.
+ * When defining a View you can give it a title and a data array 
+ * to display which can be accessed via $this.
+ */
+$app->get('/', [
+    'view' => [
+        'view' => 'user',
+        'title' => 'User',
+        'data' => ['name' => 'John Smith']
+    ]
+]);
+
+// You can also create a route that responds to two or more URIs.
+$app->get(['/', '/home'], $response);</code></pre>
+
+		<h2>Models</h2>
+		<p>Models are used to maintain data and should never communicate with the view.</p>
+
+		<pre><code class="php">&lt;?php
+
+// Controllers requiring database access should extend the Database class
+
+use Eixo\Database\Database;
+
+class UserModel extends Database {
+
+	public function __construct() {
+		parent::__construct();
+	}
+
+	...</code></pre>
+
+		<h2>Views</h2>
+		<p>This is what the user will view once a route has been matched. Variables and Services passed via the route can be accessed here using, specifically, GET parameters are located in the following associative array: $this->route->parameter</p>
+
+		<h2>Controllers</h2>
+		<p>Instead of defining all your route logic with anonymous functions in the route.php, it makes sense to organise this behaviour using Controller classes.</p>
+		<pre><code class="php">&lt;?php
+
+// All controllers should extend the BaseController class.
+
+use Eixo\HTTP\Controller\BaseController;
+
+class UserController extends BaseController {
+
+	public function __construct() {
+		parent::__construct();
+		$this->user_model = $this->model->load('UserModel')->get();
+	}
+
+	public function main() {
+	
+	}
+
+	...</code></pre>
+
+		<h2>Services</h2>
+		<p>The Service container allows you initiate and use Services throughout your application whenever you need the specific functionality it provides.</p>
+
+		<h3>Registering</h3>
+		<p>Services must be registered with Eixo before they can be loaded. If a Service relies on one or more other Services they must be registered first.</p>
+		<pre><code class="php">Service::register('Resource', new Eixo\Core\ResourceHandler);</code></pre>
+
+		<h3>Loading</h3>
+		<p>Now our Services have been registered they can be loaded.</p>
+		<pre><code class="php">$resource = Service::load('Resource');</code></pre>
+		</div>
+
+		<script>
+			hljs.configure({tabReplace: '    '});
+			hljs.initHighlightingOnLoad();
+		</script>
+    </body>
+</html>

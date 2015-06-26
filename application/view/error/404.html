@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><?php echo $this->title ?></title>
+    <style type="text/css">
+		@import url('http://fonts.googleapis.com/css?family=Roboto:900');
+
+        html,
+		body {
+		    font-family: 'Roboto', sans-serif;
+		    font-weight: 900;
+
+		    height: 100%;
+		    margin: 0 auto;
+
+		    text-align: center;
+		}
+
+		h1 {
+		    font-size: 260px;
+
+		    display: inline;
+
+		    margin: 0 auto;
+
+		    color: white;
+		}
+
+		h2 {
+		    color: #dadada;
+		}
+
+		.container {
+		    position: absolute;
+		    top: calc(50% - 150px);
+		    left: calc(50% - 300px);
+
+		    display: block;
+
+		    width: 600px;
+		    height: 300px;
+		}
+    
+    </style>
+</head>
+<body>
+
+	<div class="container">
+	    <div id="scene">
+	        <div class="layer" data-depth="1.00">
+	            <h1 class="shadow">4</h1>
+	            <h1 class="shadow">0</h1>
+	            <h1 class="shadow">4</h1>
+	        </div>
+	    </div>
+	</div>
+	
+	<?php echo $this->resource->script('jquery') ?>
+   	<?php echo $this->resource->script('parallax') ?>
+   	<?php echo $this->resource->script('real-shadow') ?>
+   	<script type="text/javascript">
+
+	    $('.shadow').realshadow({type: 'text', opacity: .05, length: 5});
+	    $('#scene').parallax();
+
+    </script>
+</body>
+</html>
