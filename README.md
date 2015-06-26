@@ -1,4 +1,4 @@
-# Exio
+# Eixo
 #### A lightweight and super simple PHP framework.
 
 Yet another PHP framework that isn't ground breaking, but was done as a learning exercise to curate and develop existing skills.
