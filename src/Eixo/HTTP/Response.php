@@ -6,10 +6,10 @@ class Response {
 
 	public $body;
 	public $code;
-	public $header;
+	public $header_array;
 
 	public function header_set($header, $value) {
-		return $this->header[$header] = $value;
+		return $this->header_array[$header] = $value;
 	}
 
 	public function header_send($header_array = false) {
