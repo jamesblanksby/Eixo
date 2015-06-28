@@ -39,14 +39,25 @@ require_once __DIR__ . '/application/route.php';
 
 /*
 |-----------------------------------------------------------------------
-|	Application Root
+|	Base URL
 |-----------------------------------------------------------------------
 |
-|	Sets the application root to the current root directory.
+|	Sets the application base url to the current root directory.
 |
 */
 
-$_SERVER['ROOT'] = rtrim($_SERVER['SCRIPT_NAME'], 'index.php/');
+$_SERVER['BASE_URL'] = rtrim($_SERVER['SCRIPT_NAME'], 'index.php/');
+
+/*
+|-----------------------------------------------------------------------
+|	Base Path
+|-----------------------------------------------------------------------
+|
+|	Sets the application base path to the current root directory.
+|
+*/
+
+$_SERVER['BASE_PATH'] = $_SERVER['DOCUMENT_ROOT'] . rtrim($_SERVER['SCRIPT_NAME'], 'index.php/');
 
 /*
 |-----------------------------------------------------------------------
