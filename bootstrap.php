@@ -15,7 +15,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 /*
 |-----------------------------------------------------------------------
-|	services.php
+|	Services
 |-----------------------------------------------------------------------
 |
 |	Contains all the necesary services to run Eixo. It is possible
@@ -28,7 +28,7 @@ require_once __DIR__ . '/application/service.php';
 
 /*
 |-----------------------------------------------------------------------
-|	routes.php
+|	Routes
 |-----------------------------------------------------------------------
 |
 |	Contains your predefined application routes.
@@ -80,5 +80,6 @@ date_default_timezone_set($config['app']['timezone']);
 |
 */
 
+session_save_path($config['session']['save_path']);
 session_name($config['session']['name']);
 session_start();
