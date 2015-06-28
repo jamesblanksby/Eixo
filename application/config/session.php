@@ -2,6 +2,7 @@
 
 return array (
 
-	'name' => 'eixo'
+	'name' => 'eixo',
+	'save_path' => 'application/session'
 
 );
