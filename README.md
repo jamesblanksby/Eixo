@@ -14,7 +14,7 @@ $app->get($route, $response);
 $app->any($route, $response);
 ```
 A few things to remember when defining routes:
-* A valid **route** must always start with a slash.
+* A valid **route** must always start with a slash unless you use a asterisk regex shortcut.
 * The **response** can be an anonymous function or an array specifying either, a View or a Controller.
 
 ### Using regex
