@@ -35,7 +35,7 @@ $app->any($route, $response);</code></pre>
 			<p>A few things to remember when defining routes:</p>
 
 			<ul>
-				<li>A valid <strong>route</strong> must always start with a slash.</li>
+				<li>A valid <strong>route</strong> must always start with a slash unless you use a asterisk regex shortcut.</li>
 				<li>The <strong>response</strong> can be an anonymous function or an array specifying either, a View or a Controller.</li>
 			</ul>
 
@@ -44,10 +44,10 @@ $app->any($route, $response);</code></pre>
 			<pre><code class="php">$app->get('/user/{[\d]+}', $response);</code></pre>
 
 			<p>Instead of retyping common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here /application/config/route.php.</p>
-		<pre><code class="php">i => [\s\S]*            // Matches everything
-i => [0-9]+             // Numbers only
-a => [a-zA-Z0-9]+       // Alphanumeric
-c => [a-zA-Z0-9+_\-\.]+ // Alnumnumeric and + _ - . characters</code></pre>
+		<pre><code class="php">{*} => [\s\S]*            // Matches everything
+{i} => [0-9]+             // Numbers only
+{a} => [a-zA-Z0-9]+       // Alphanumeric
+{c} => [a-zA-Z0-9+_\-\.]+ // Alnumnumeric and + _ - . characters</code></pre>
 			
 			<h3>Defining responses</h3>
 			<pre><code class="php">// Defining a route response with an anonymous function.
