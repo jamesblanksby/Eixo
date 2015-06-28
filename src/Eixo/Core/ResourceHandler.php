@@ -37,7 +37,7 @@ class ResourceHandler {
 		$path = $this->path_get('asset/css/' . $resource . '.css');
 
 		if($path) {
-			return "<link rel='stylesheet' href='" . $_SERVER['ROOT'] . "/" . $path . "'>";
+			return "<link rel='stylesheet' href='" . $_SERVER['BASE_URL'] . "/" . $path . "'>";
 		}
 		throw new ResourceException($path . ' does not exist');
 	}
@@ -46,7 +46,7 @@ class ResourceHandler {
 		$path = $this->path_get('asset/script/' . $resource . '.js');
 
 		if($path) {
-			return "<script src='" . $_SERVER['ROOT'] . "/" . $path . "'></script>";
+			return "<script src='" . $_SERVER['BASE_URL'] . "/" . $path . "'></script>";
 		}
 		throw new ResourceException($path . ' does not exist');
 	}
