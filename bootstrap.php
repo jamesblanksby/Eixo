@@ -96,5 +96,5 @@ if(is_writable($config['session']['save_path'])) {
 	session_name($config['session']['name']);
 	session_start();
 } else {
-	throw new Exception($config['session']['save_path'] . ' does not have sufficient permissions');
+	throw new Exception($config['session']['save_path'] . ' does not have sufficient permission - requires 777');
 }
