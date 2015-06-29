@@ -91,6 +91,7 @@ date_default_timezone_set($config['app']['timezone']);
 |
 */
 
+chmod($config['session']['save_path'], 0777);
 session_save_path($config['session']['save_path']);
 session_name($config['session']['name']);
 session_start();
