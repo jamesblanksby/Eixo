@@ -3,6 +3,20 @@
 
 Yet another PHP framework that isn't ground breaking, but was done as a learning exercise to curate and develop existing skills.
 
+## Installation
+
+1. Download and install Composer if you haven't already
+
+    ```sh
+	$ curl -sS https://getcomposer.org/installer | php
+	```
+	
+2. Run Composer in your development directory
+
+    ```sh
+	$ cd ~/DEV_DIR; composer install
+	```
+
 ## Getting started
 ### Adding routes
 ```php
