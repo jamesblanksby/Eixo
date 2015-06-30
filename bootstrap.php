@@ -91,10 +91,5 @@ date_default_timezone_set($config['app']['timezone']);
 |
 */
 
-if(is_writable($config['session']['save_path'])) {
-	session_save_path($config['session']['save_path']);
-	session_name($config['session']['name']);
-	session_start();
-} else {
-	throw new Exception($config['session']['save_path'] . ' does not have sufficient permission - requires 777');
-}
+session_name($config['session']['name']);
+session_start();
