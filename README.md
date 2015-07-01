@@ -38,10 +38,10 @@ $app->get('/user/{[\d]+}', $response);
 ```
 Instead of retyping common regex strings you can use Eixo's array of predefined regular expressions. You can add your own strings to the array here `/application/config/route.php`.
 ```
-i => [\s\S]*            // Matches everything
-i => [0-9]+             // Numbers only
-a => [a-zA-Z0-9]+       // Alphanumeric
-c => [a-zA-Z0-9+_\-\.]+ // Alnumnumeric and + _ - . characters
+{*} => [\s\S]*            // Matches everything
+{i} => [0-9]+             // Numbers only
+{a} => [a-zA-Z0-9]+       // Alphanumeric
+{c} => [a-zA-Z0-9+_\-\.]+ // Alnumnumeric and + _ - . characters
 ```
 ### Defining responses
 ```php
