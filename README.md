@@ -121,7 +121,7 @@ class UserController extends BaseController {
 ```
 
 ## Services
-The Service container allows you initiate and use Services throughout your application whenever you need the specific functionality it provides.
+The Service container allows you to initiate and use Services throughout your application whenever you need the specific functionality it provides.
 ### Registering
 Services must be registered with Eixo before they can be loaded. If a Service relies on one or more other Services they must be registered first.
 ```php
