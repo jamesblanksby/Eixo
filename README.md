@@ -94,7 +94,7 @@ class UserModel extends Database {
 ```
 
 ## Views
-This is what the user will view once a route has been matched. Variables and Services passed via the route can be accessed here using, specifically, `GET` parameters are located in the following associative array `$this->route->parameter`.
+This is what the user will view once a route has been matched. Variables and Services passed via the route can be accessed here using `$this`. `GET` parameters are located in the following associative array `$this->route->parameter`.
 
 
 ## Controllers
